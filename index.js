@@ -1,3 +1,4 @@
+
 // Imports
 const express = require('express');
 const app = express(); // instance of the app
@@ -19,6 +20,7 @@ app.get('/', function(req, res) {
 // }
 
 // app.get('/sei', sei);
+
 
 app.get('/rockets', (req, res) => {
     // access an API and return some data
@@ -50,6 +52,12 @@ app.get('/github/:username', (req, res) => {
     .catch(error => {
         console.log(error);
     });
+});
+
+// IMPORTANT: Make last route
+app.get('/*', (req, res) => {
+    
+    res.send('404');
 });
 
 const PORT = process.env.PORT || 8000;
